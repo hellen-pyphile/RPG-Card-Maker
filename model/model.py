@@ -12,4 +12,8 @@ def load_character():
                     except json.JSONDecodeError:
                         return []
     return[]
+
+def save_character(character):
+    with open(DATASET, "w", encoding='UTF-8') as f:
+            json.dump(character, f, indent=4, ensure_ascii=False)
     
