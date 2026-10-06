@@ -18,9 +18,12 @@ def character_name():
     
     name = input("Enter character name: ")
     
-def select_class():
-    clean_screen()
+def character_class():
+    category = input(f"Enter {__name__}'s class: ").strip().lower()
     
+    if not category:
+        input("The class does not exists.")
+        return
         
 def character_description():
-    
+    description = input("")
