@@ -1,7 +1,9 @@
 from view.utilities import clean_screen
+
         
 class identity():
-    def character_name():
+    @staticmethod
+    def character_name() -> str:
         clean_screen()
         while True:    
             name = input("Enter character's name: ")
@@ -11,7 +13,8 @@ class identity():
                 continue
             return name
         
-    def character_height():
+    @staticmethod
+    def character_height() -> float:
             while True:
                 try:
                     height = float(input("Height: "))
@@ -21,7 +24,8 @@ class identity():
                     return height
                 except ValueError:
                     print("Invalid entry. Try again!")
-                
+         
+    @staticmethod       
     def character_personality(character_name: str):
         while True:
             personality = input(f"Describe {character_name} personality and motivations:\n").strip()
@@ -31,6 +35,7 @@ class identity():
                 continue
             return personality
     
+    @staticmethod
     def character_past(character_name: str):
         while True:
             past = input(f"{character_name}'s past:\n").strip()
