@@ -26,7 +26,7 @@ class identity():
                     print("Invalid entry. Try again!")
          
     @staticmethod       
-    def character_personality(character_name: str):
+    def character_personality(character_name: str) -> str:
         while True:
             personality = input(f"Describe {character_name} personality and motivations:\n").strip()
             
@@ -36,7 +36,7 @@ class identity():
             return personality
     
     @staticmethod
-    def character_past(character_name: str):
+    def character_past(character_name: str) -> str:
         while True:
             past = input(f"{character_name}'s past:\n").strip()
             
