@@ -4,15 +4,15 @@ from view.utilities import clean_screen
 class identity():
     def character_name():
         clean_screen()
-        name = input("Enter character's name: ")
-        
-        if not name.strip():
-            try:
+        while True:    
+            name = input("Enter character's name: ")
+            
+            if not name.strip():
                 print("You must enter the name of the character.")
-            except:
-                pass
+                continue
+            return name
         
-    def character_appearence():
+    def character_height():
             while True:
                 try:
                     height = float(input("Height: "))
@@ -24,22 +24,22 @@ class identity():
                     print("Invalid entry. Try again!")
                 
     def character_personality():
-        personality = input(f"Describe {__name__} personality and motivations:\n")
-        
-        if personality is None:
-            try:
+        while True:
+            personality = input(f"Describe {__name__} personality and motivations:\n")
+            
+            if not personality.strip():
                 print("You can't skip this step!")
-            except:
-                pass
+                continue
+            return personality
     
     def character_past():
-        past = input(f"{__name__}'s past:\n")
-        
-        if past is None:
-            try:
+        while True:
+            past = input(f"{__name__}'s past:\n")
+            
+            if not past:
                 print("You can't skip this step!")
-            except:
-                pass
+                continue
+            return past
             
         
 #class attributes():
