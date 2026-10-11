@@ -6,21 +6,23 @@ class identity():
         clean_screen()
         name = input("Enter character's name: ")
         
-        if name is None:
+        if not name.strip():
             try:
                 print("You must enter the name of the character.")
             except:
                 pass
         
     def character_appearence():
-        height = input("Height: ", float)
-        
-        if height is not float or None: 
-            try:
-                print("Invalid entry. Try again!")
-            except:
-                pass
-            
+            while True:
+                try:
+                    height = float(input("Height: "))
+                    if height <= 0:
+                        print("Height must be greater than 0.")
+                        continue
+                    return height
+                except ValueError:
+                    print("Invalid entry. Try again!")
+                
     def character_personality():
         personality = input(f"Describe {__name__} personality and motivations:\n")
         
