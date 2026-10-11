@@ -23,18 +23,18 @@ class identity():
                 except ValueError:
                     print("Invalid entry. Try again!")
                 
-    def character_personality():
+    def character_personality(character_name: str):
         while True:
-            personality = input(f"Describe {__name__} personality and motivations:\n")
+            personality = input(f"Describe {character_name} personality and motivations:\n").strip()
             
             if not personality.strip():
                 print("You can't skip this step!")
                 continue
             return personality
     
-    def character_past():
+    def character_past(character_name: str):
         while True:
-            past = input(f"{__name__}'s past:\n")
+            past = input(f"{character_name}'s past:\n").strip()
             
             if not past:
                 print("You can't skip this step!")
