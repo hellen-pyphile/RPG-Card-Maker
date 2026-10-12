@@ -21,4 +21,4 @@ class CharacterController:
         save_character(data)
 
         print(f"\n'{new_char.name}' successfully saved!")
-        return new_char
+        return new_char 
