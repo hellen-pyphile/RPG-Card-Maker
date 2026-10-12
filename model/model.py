@@ -6,22 +6,22 @@ DATASET = "card.json"
 def load_character():
     if os.path.exists(DATASET):
         with open(DATASET, "r", encoding='UTF-8') as f:
-                    try:    
-                        return json.load(f)
-                    except json.JSONDecodeError:
-                        return []
-    return[]
+            try:    
+                return json.load(f)
+            except json.JSONDecodeError:
+                return []
+    return []
 
 def save_character(character):
     with open(DATASET, "w", encoding='UTF-8') as f:
-            json.dump(character, f, indent=4, ensure_ascii=False)
-    
-class Character:
+        json.dump(character, f, indent=4, ensure_ascii=False)
+
+class character:
     def __init__(self, name: str, height: float, personality: str, past: str):
         if not name or not name.strip():
             raise ValueError("You must name the character.")
         if height <= 0:
-            raise ValueError("The height can't be shorter than 0.")
+            raise ValueError("The height must be greater than 0.")
 
         self.name = name.strip()
         self.height = height
