@@ -1,5 +1,4 @@
 from view.utilities import clean_screen
-
         
 class identity():
     @staticmethod
