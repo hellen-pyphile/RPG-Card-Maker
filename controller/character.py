@@ -1,7 +1,7 @@
 from view.identity import identity
-from model import character, load_character, save_character
+from model import Character, load_character, save_character
 
-class CharacterController:
+class new_character:
     @staticmethod
     def create_character():
         name = identity.character_name()
@@ -9,11 +9,11 @@ class CharacterController:
         personality = identity.character_personality(name)
         past = identity.character_past(name)
 
-        new_character = character(
-            name=name,
-            height=height,
-            personality=personality,
-            past=past
+        new_character = Character(
+            name = name,
+            height = height,
+            personality = personality,
+            past = past
         )
 
         data = load_character()
