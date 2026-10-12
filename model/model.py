@@ -1,5 +1,4 @@
 import json
-import requests
 import os
 
 DATASET = "card.json"
