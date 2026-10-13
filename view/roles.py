@@ -11,12 +11,6 @@ class role_model():
             data = class_response.json()
             
             available_classes = [c['name'].lower() for c in data.get('results', [])]
-        
-            if category in available_classes:
-                print(f"Class {category.capitalize()} selected successfully!")
-                return category.capitalize()
-            else:
-                    print("The class does not exist. You can try again!")
                     
         except requests.exceptions.RequestException as e:
             print(f"Error connecting to the API: {e}")
@@ -50,12 +44,6 @@ class role_model():
                             
             available_archetype = [c['name'].lower() for c in data.get('results', [])]
                             
-            if archetype in available_archetype:
-                print(f"Class {archetype.capitalize()} selected successfully!")
-                return archetype.capitalize()
-            else:
-                print("The archetype does not exist. You can try again!")  
-                                      
         except requests.exceptions.RequestException as e:
             print(f"Error connecting to the API: {e}")
             return ""
