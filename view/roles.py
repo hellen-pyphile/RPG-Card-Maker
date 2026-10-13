@@ -1,5 +1,4 @@
 import requests
-#from view.identity import character?
 
 class role_model():
     def character_class(character_name: str) -> str:    
@@ -31,10 +30,32 @@ class role_model():
                 return ""
             
         
-    def character_archetypes():
+    def character_archetypes(character_name: str):
         archetype_url = 'https://pf2etools.com/archetypes'
         
-        archetype = input("")
+        while True:
+            archetype = input(f"What's {character_name}'s archetype?")
+            
+            if not archetype:
+                input("Enter a archetype!")
+                continue
+            
+            try:
+                archetype_response = requests.get(archetype_url)
+                archetype_response.raise_for_status()
+                
+                data = archetype_response.json()
+                                
+                available_archetype = [c['name'].lower() for c in data.get('results', [])]
+                            
+                if archetype in available_archetype:
+                    print(f"Class {archetype.capitalize()} selected successfully!")
+                    return archetype.capitalize()
+                else:
+                    print("The archetype does not exist. You can try again!")                        
+            except requests.exceptions.RequestException as e:
+                print(f"Error connecting to the API: {e}")
+                return ""
         
 #class attributes():
 
