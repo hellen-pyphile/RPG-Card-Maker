@@ -24,6 +24,7 @@ class role_model():
         
         except ValueError:
             print("Error: the URL did not return a valid JSON.")
+            return ""
         
         while True:
             category = input(f"Enter {character_name}'s class: ").strip().lower()
@@ -33,7 +34,7 @@ class role_model():
                 continue
             
             if category in available_classes:
-                print(f"Cass {category.tittle()} selected successfully!")
+                print(f"Cass {category.title()} selected successfully!")
                 return category.title()
             else:
                 print("Class does not exit. You can try again!")
@@ -41,8 +42,6 @@ class role_model():
     def character_archetypes(character_name: str):
         archetype_url = 'https://pf2etools.com/archetypes'
         
-        
-            
         try:
             archetype_response = requests.get(archetype_url)
             archetype_response.raise_for_status()
@@ -55,9 +54,14 @@ class role_model():
                 print(f"Class {archetype.capitalize()} selected successfully!")
                 return archetype.capitalize()
             else:
-                print("The archetype does not exist. You can try again!")                        
+                print("The archetype does not exist. You can try again!")  
+                                      
         except requests.exceptions.RequestException as e:
             print(f"Error connecting to the API: {e}")
+            return ""
+        
+        except ValueError:
+            print("Error: The URL did not return a valid JSON.")
             return ""
         
         while True:
@@ -66,6 +70,11 @@ class role_model():
             if not archetype:
                 print("Enter a archetype!")
                 continue
+            if archetype in available_archetype:
+                print(f"Archetype {archetype.title()} selected successfully!")
+                return archetype.title()
+            else:
+                print("The archetype does not exist. You can try again!")
         
 #class attributes():
 
